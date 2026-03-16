@@ -1,7 +1,7 @@
 /**
- * EVIDENCIA: GA7-220501096-AA5-EV01
- * ACTIVIDAD: Codificar el backend utilizando herramientas de versionamiento.
- * DESCRIPCIÓN: API para gestión de usuarios (Registro e Inicio de Sesión).
+ * EVIDENCIA: GA7-220501096-AA5-EV04
+ * ACTIVIDAD: Testing de API del Proyecto.
+ * DESCRIPCIÓN: pruebas a los endpoints desarrollados para la gestión del menú y autenticación del proyecto.
  */
 
 // Librerías necesarias
@@ -44,12 +44,12 @@ app.post('/api/login', (req, res) => {
 
 // --- SERVICIOS REST DEL PROYECTO (MenuMaster) ---
 
-// Obtener todo el menú (GET)
+// 1. OBTENER TODO EL MENÚ (Esta es la ruta que necesitabas)
 app.get('/api/menu', (req, res) => {
     res.status(200).json(menu);
 });
 
-// Agregar nuevo plato al menú (POST)
+// 2. AGREGAR NUEVO PLATO AL MENÚ
 app.post('/api/menu', (req, res) => {
     const { nombre, precio, categoria } = req.body;
     if (!nombre || !precio) {
@@ -63,5 +63,8 @@ app.post('/api/menu', (req, res) => {
 app.listen(PORT, () => {
     console.log(`==========================================`);
     console.log(`Servidor MenuMaster PROYECTO escuchando en el puerto ${PORT}`);
+    console.log(`Endpoint Registro: http://localhost:${PORT}/api/registro`);
+    console.log(`Endpoint Login: http://localhost:${PORT}/api/login`);
+    console.log(`Endpoint Menu: http://localhost:${PORT}/api/menu`);
     console.log(`==========================================`);
 });
